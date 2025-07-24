@@ -1,0 +1,208 @@
+---
+import Layout from "../layouts/Layout.astro";
+import HeroKeyLogo from "../assets/hero-key-logo.webp";
+import IconArrowLeft from "../assets/icon-arrow-left.svg";
+import IconArrowRight from "../assets/icon-arrow-right.svg";
+import ButtonCall from "../assets/hero-key-callnow.webp";
+import IconMan from "../assets/iconman.png";
+import Iconfemale from "../assets/iconfemale.png";
+---
+
+<style is:global>
+  html,
+  body {
+    height: auto !important;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+</style>
+
+<!-- Precarga Home + Redirección -->
+<script>const preloadHome=document.createElement("link");preloadHome.rel="prefetch";
+preloadHome.href="/";document.head.appendChild(preloadHome);
+const fade=document.createElement("style");fade.innerHTML="body.fade-out{opacity:0;transition:opacity 0.1s ease-out;}";
+document.head.appendChild(fade);window.addEventListener("scroll",()=>{if(window.scrollY<=0){document.body.classList.add("fade-out");
+setTimeout(()=>{window.location.href="/";},100);}});
+</script>
+
+
+
+<Layout>
+  <!-- HEADER -->
+  <header class="fixed top-0 left-0 w-full flex justify-between items-center px-6 py-4 z-20 bg-transparent">
+    <a href="#top">
+      <img
+        src={HeroKeyLogo.src}
+        alt="Mini Logo"
+        class="w-20 h-auto cursor-pointer transition-transform hover:scale-105"
+      />
+    </a>
+    <div class="relative">
+      <button
+        id="menu-button"
+        class="text-white border border-white px-4 py-2 rounded-md font-semibold hover:bg-white hover:text-black transition-all duration-300 focus:outline-none"
+      >
+        Menú
+      </button>
+      <div
+        id="menu-dropdown"
+        class="absolute right-0 mt-2 w-44 bg-white text-black rounded-md shadow-lg hidden transition-all duration-300"
+      >
+        <ul class="p-2 space-y-1">
+          <li class="py-2 px-3 hover:bg-gray-100 cursor-pointer rounded">
+            <a href="/" class="block w-full h-full">Inicio</a>
+          </li>
+          <li class="py-2 px-3 hover:bg-gray-100 cursor-pointer rounded">
+         <a href="/?goto=card-section" class="block w-full h-full">Servicios</a>
+          </li>
+          <li class="py-2 px-3 hover:bg-gray-100 cursor-pointer rounded">
+            <a href="/testimonios" class="block w-full h-full">Testimonios</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+    <a
+    id="menu-call"
+    href="tel:+13237988413"
+    class="fixed bottom-4 right-4 bg-blue-800 text-white px-4 py-2 rounded-full shadow-lg hover:bg-blue-600 transition-colors duration-300 flex items-center"
+  >
+    <img src={ButtonCall.src} alt="Call Now" class="w-6 h-6 inline-block" />
+    <span class="ml-2">Llámanos gratis</span>
+  </a>
+
+  <!-- TESTIMONIOS COMO CARRUSEL -->
+<!-- TESTIMONIOS COMO CARRUSEL -->
+<section id="testimonios" class="bg-[rgba(6,1,16,0.95)] py-24 px-6 mt-20 relative overflow-hidden">
+  <h2 class="text-4xl font-bold text-white text-center mb-12">Testimonios</h2>
+
+  <!-- Botones -->
+  <button id="prevBtn" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white bg-opacity-10 hover:bg-opacity-20 p-2 rounded-full z-10 transition">
+    <img src={IconArrowLeft.src} alt="Anterior" class="w-6 h-6 invert" />
+  </button>
+  <button id="nextBtn" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white bg-opacity-10 hover:bg-opacity-20 p-2 rounded-full z-10 transition">
+    <img src={IconArrowRight.src} alt="Siguiente" class="w-6 h-6 invert" />
+  </button>
+
+  <!-- Carrusel -->
+<!-- Carrusel -->
+<div
+  id="carousel"
+  class="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide max-w-screen-xl mx-auto scroll-pl-6 px-0"
+>
+  {[
+    {
+      name: "Mariana Ramirez",
+      location: "México",
+      avatar: Iconfemale.src,
+      text: "Llevo 3 meses consultando y mi vida sexual con mi pareja mejoró completamente, gracias maestros por su ayuda.",
+    },
+    {
+      name: "Steven Johnson",
+      location: "EE.UU",
+      avatar: IconMan.src,
+      text: "Recuperé la confianza en mí, mi pareja volvió y me ascendieron en el trabajo. Gracias a los maestros.",
+    },
+    {
+      name: "Thomas Anderson",
+      location: "Texas",
+       avatar: IconMan.src,
+      text: "Después de muchos intentos, encontré a los maestros y ahora vivo feliz con mi pareja.",
+    },
+    {
+      name: "Valentina González",
+      location: "New York",
+      avatar: Iconfemale.src,
+      text: "Gracias al ritual de protección, sentí que las malas energías desaparecieron de mi entorno.",
+    },
+    {
+      name: "Fernando Matias",
+      location: "Miami",
+      avatar: IconMan.src,  
+      text: "El endulzamiento realmente funcionó, ahora tenemos una conexión mucho más suave y constante.",
+    },
+  ].map((t) => (
+    <div
+      key={t.name}
+      class="testimonial-card bg-[rgba(6,1,16,0.95)] border border-gray-700 shadow-md hover:shadow-xl transition-shadow duration-300 p-6 rounded-lg text-white flex-shrink-0 w-full sm:w-[90%] md:w-80 snap-center"
+    >
+      <p class="italic mb-6 text-lg">
+        <span class="text-4xl text-yellow-500">“</span>
+        {t.text}
+        <span class="text-4xl text-yellow-500">”</span>
+      </p>
+      <div class="flex flex-col items-center">
+        <img src={t.avatar} alt="Avatar" class="w-16 h-16 rounded-full grayscale mb-2" />
+        <span class="text-yellow-500 font-semibold">{t.name}</span>
+        <span class="text-sm text-gray-300">{t.location}</span>
+      </div>
+    </div>
+  ))}
+</div>
+
+</section>
+
+
+  <!-- FOOTER -->
+  <footer class="bg-[rgba(6,1,16,0.95)] text-gray-300 py-8 px-6">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
+      <img src={HeroKeyLogo.src} alt="Logo" class="w-24 mb-4 md:mb-0" />
+      <nav class="flex space-x-4 mb-4 md:mb-0">
+        <a href="/" class="hover:text-white">Inicio</a>
+        <a href="/servicios" class="hover:text-white">Servicios</a>
+        <a href="/testimonios" class="hover:text-white">Testimonios</a>
+        <a href="/contacto" class="hover:text-white">Contacto</a>
+      </nav>
+      <p class="text-sm text-center md:text-left">&copy; {new Date().getFullYear()} Amarres Sexuales. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Script menú -->
+  <script>
+    const menuButton = document.getElementById("menu-button");
+    const menuDropdown = document.getElementById("menu-dropdown");
+
+    menuButton.addEventListener("click", () => {
+      menuDropdown.classList.toggle("hidden");
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!menuButton.contains(e.target) && !menuDropdown.contains(e.target)) {
+        menuDropdown.classList.add("hidden");
+      }
+    });
+  </script>
+
+  <!-- Script carrusel -->
+ <script>
+  const carousel = document.getElementById("carousel");
+  const nextBtn = document.getElementById("nextBtn");
+  const prevBtn = document.getElementById("prevBtn");
+
+  // Obtener ancho real de una tarjeta (incluso si cambia en mobile)
+  function getCardWidth() {
+    const card = carousel.querySelector(".testimonial-card");
+    return card ? card.offsetWidth + 24 /* gap-6 = 1.5rem = 24px */ : 320;
+  }
+
+  nextBtn.addEventListener("click", () => {
+    const scrollAmount = getCardWidth();
+    carousel.scrollBy({ left: scrollAmount, behavior: "smooth" });
+  });
+
+  prevBtn.addEventListener("click", () => {
+    const scrollAmount = getCardWidth();
+    carousel.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+  });
+</script>
+
+
+  
+
+</Layout>

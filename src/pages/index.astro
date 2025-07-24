@@ -1,25 +1,378 @@
+ ---
+import Layout from "../layouts/Layout.astro";
+import HeroKeyLogo from "../assets/hero-key-logo.webp";
+import HeroKeyBackground from "../assets/hero-key-background.webp";
+import ButtonCall from "../assets/hero-key-callnow.webp";
+import WhatsAppIcon from "../assets/whatsappicon.svg";
+import IconHeart from "../assets/icon-heart.svg";
+import PJAM from "../assets/SK1.avif";
+import sx1 from "../assets/sx1.avif";
+import edam from "../assets/edam.avif";
+import endulzamiento from "../assets/7.avif";
 ---
-import Layout from '../layouts/Layout.astro';
-
-import HeroKeyLogo from '../assets/hero-key-background.webp';	
-
-
----
-
 <Layout>
-	<section class="bg-black h-screen">
-<picture>
-		 <img 
-		 id="hero-key-logo"
-		 src="{HeroKeyLogo.src}"
-		 class="absolute w-full h-full object-cover"
-		 />
-</picture>
-	</section>
-	<section class="bg-red-300 h-screen">
-		<h1>Landing GTA</h1>
-	</section>
-	<section class="bg-black h-screen">
-		<h1>Landing GTA</h1>
-	</section>
+
+  <!-- HERO MASK SECTION -->
+  <div id="logo-mask" class="fixed top-0 w-full h-screen z-0">
+    <section>
+      <picture id="hero-key" class="fixed inset-0 w-full h-full overflow-hidden scale-125">
+        <img
+          id="hero-key-background"
+          src={HeroKeyBackground.src}
+          alt="Background"
+          class="w-full h-full object-cover"
+        />
+        <img
+          id="hero-key-logo"
+          src={HeroKeyLogo.src}
+          alt="Hero Key Logo"
+          class="absolute top-[35%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2/3 max-w-xs md:w-1/3 md:max-w-sm z-10"
+        />
+        <a
+          id="hero-key-call"
+          href="tel:+13237988413"
+          class="absolute top-[60%] left-1/2 transform -translate-x-1/2 w-20 md:w-24 z-10"
+        >
+          <img
+            src={ButtonCall.src}
+            alt="Marca Ahora"
+            class="w-full h-full scale-180 rounded-full shadow-lg transition-transform duration-300 hover:scale-220 hover:shadow-2xl"
+          />
+        </a>
+      </picture>
+    </section>
+  </div>
+
+  <!-- HEADER -->
+  <header class="fixed top-0 left-0 w-full flex justify-between items-center px-6 py-4 z-20 bg-transparent">
+    <a href="#top">
+      <img
+        src={HeroKeyLogo.src}
+        alt="Mini Logo"
+        class="w-20 h-auto cursor-pointer transition-transform hover:scale-105"
+      />
+    </a>
+    <div class="relative">
+      <button
+        id="menu-button"
+        class="text-white border border-white px-4 py-2 rounded-md font-semibold hover:bg-white hover:text-black transition-all duration-300 focus:outline-none"
+      >
+        Menú
+      </button>
+      <div
+        id="menu-dropdown"
+        class="absolute right-0 mt-2 w-44 bg-white text-black rounded-md shadow-lg hidden transition-all duration-300"
+      >
+        <ul class="p-2 space-y-1">
+          <li class="py-2 px-3 hover:bg-gray-100 cursor-pointer rounded">
+            <a href="#top" class="block w-full h-full">Inicio</a>
+          </li>
+          <li class="py-2 px-3 hover:bg-gray-100 cursor-pointer rounded">
+            <a href="#card-section" class="block w-full h-full">Servicios</a>
+          </li>
+     		<li class="py-2 px-3 hover:bg-gray-100 cursor-pointer rounded">
+  			<a href="/testimonios" class="block w-full h-full">Testimonios</a>
+			</li>
+
+        </ul>
+      </div>
+    </div>
+  </header>
+
+<!-- CALL BUTTON -->
+<a
+  href="#"
+  id="call-now-btn"
+  class="fixed bottom-4 right-4 bg-blue-800 text-white px-4 py-2 rounded-full shadow-lg hover:bg-blue-600 transition-colors duration-300 flex items-center"
+>
+  <img src={ButtonCall.src} alt="Call Now" class="w-6 h-6 inline-block" />
+  <span class="ml-2">Llámanos gratis</span>
+</a>
+
+<!-- Script de llamada -->
+<script>
+  if (typeof window !== "undefined") {
+    window.addEventListener("DOMContentLoaded", () => {
+      const btn = document.getElementById("call-now-btn");
+      if (btn) {
+        btn.addEventListener("click", function (event) {
+          event.preventDefault();
+          const confirmacion = confirm("¿Deseas llamar ahora a JP Amarres?");
+          if (confirmacion) {
+            window.location.href = "tel:+573045635147";
+          }
+        });
+      }
+    });
+  }
+</script>
+
+  <!-- HERO CONTENT -->
+  <div
+    id="hero-content"
+    class="fixed top-120 flex items-center justify-center scale-80 opacity-0 pointer-events-none"
+  >
+    <h1 class="text-4xl md:text-6xl font-bold text-white text-center">
+      ¡Conoce ahora todo lo que tenemos para ti!
+    </h1>
+  </div>
+
+  <!-- SERVICES SECTION -->
+  <section
+    id="card-section"
+    class="hidden bg-[rgba(6,1,16,0.95)] py-34 top-85 px-6 w-full relative transition-opacity duration-100 opacity-0"
+  >
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-white text-4xl font-bold text-center mb-10">Nuestros Servicios</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        
+        <!-- CARD 1 -->
+        <div class="bg-white rounded-3xl overflow-hidden shadow-lg relative">
+          <div class="relative">
+            <img src={PJAM.src} alt="Amarre de amor" class="w-full max-w-md mx-auto h-60 object-cover" />
+          </div>
+          <div class="bg-purple-900 text-white p-6 relative">
+            <h3 class="text-xl font-semibold mb-2">Amarre de amor</h3>
+            <p class="text-sm opacity-90">
+              Hechizos efectivos para potenciar las relaciones que están en sus peores momentos o cuando tu ser amado te ha dejado, ayuda esotérica.
+            </p>
+            <img src={IconHeart.src} alt="Icono corazón" class="absolute -top-7 right-6 w-12 h-12 rounded-md bg-purple-800 p-2" />
+               <a href="tel:+13237988413">
+          <img
+          src={WhatsAppIcon.src}
+          alt="WhatsApp"
+          class="absolute bottom-4 right-4 w-8 h-8 cursor-pointer"
+          />
+          </a>
+
+          </div>
+        </div>
+    <!-- CARD 2 -->
+        <div class="bg-white rounded-3xl overflow-hidden shadow-lg relative">
+          <div class="relative">
+            <img src={sx1.src} alt="Retorno de pareja" class="w-full h-60 object-cover" />
+          </div>
+          <div class="bg-purple-900 text-white p-6 relative">
+            <h3 class="text-xl font-semibold mb-2">Amarre Sexual</h3>
+            <p class="text-sm opacity-90">
+              Despierta una conexión que va más allá del cuerpo. Provoca su pensamiento, enciende su deseo, conecta con su alma. Su energía vendrá a ti.
+            </p>
+            <img src={IconHeart.src} alt="Icono corazón" class="absolute -top-7 right-6 w-12 h-12 rounded-md bg-purple-800 p-2" />
+           <a href="tel:+13237988413">
+          <img
+          src={WhatsAppIcon.src}
+          alt="WhatsApp"
+          class="absolute bottom-4 right-4 w-8 h-8 cursor-pointer"
+          />
+          </a>
+          </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="bg-white rounded-3xl overflow-hidden shadow-lg relative">
+          <div class="relative">
+            <img src={edam.src} alt="Endulzamiento" class="w-full h-60 object-cover" />
+          </div>
+          <div class="bg-purple-900 text-white p-6 relative">
+            <h3 class="text-xl font-semibold mb-2">Endulzamiento</h3>
+            <p class="text-sm opacity-90">
+              Suaviza sus emociones, mejora la conexión y haz que no deje de pensarte. Un endulzamiento que despierta su deseo y lo atrae a ti sin resistencia ✨💖.
+            </p>
+            <img src={IconHeart.src} alt="Icono corazón" class="absolute -top-7 right-6 w-12 h-12 rounded-md bg-purple-800 p-2" />
+                 <a href="tel:+13237988413">
+          <img
+          src={WhatsAppIcon.src}
+          alt="WhatsApp"
+          class="absolute bottom-4 right-4 w-8 h-8 cursor-pointer"
+          />
+          </a>
+          </div>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="bg-white rounded-3xl overflow-hidden shadow-lg relative mb-10">
+          <div class="relative">
+            <img src={endulzamiento.src} alt="Ritual protección" class="w-full h-60 object-cover" />
+          </div>
+          <div class="bg-purple-900 text-white p-6 relative">
+            <h3 class="text-xl font-semibold mb-2">Ritual de protección</h3>
+            <p class="text-sm opacity-90">
+              Limpieza Energética & Protección Espiritual Libérate de malas vibras, envidias y cargas emocionales. Activa tu aura, alinea tus 7 chakras.
+            </p>
+            <img src={IconHeart.src} alt="Icono corazón" class="absolute -top-7 right-6 w-12 h-12 rounded-md bg-purple-800 p-2" />
+                <a href="tel:+13237988413">
+          <img
+          src={WhatsAppIcon.src}
+          alt="WhatsApp"
+          class="absolute bottom-4 right-4 w-8 h-8 cursor-pointer"
+          />
+          </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
 </Layout>
+
+
+  <script>
+    const button = document.getElementById("menu-button");
+    const menu = document.getElementById("menu-dropdown");
+
+    button.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!button.contains(e.target) && !menu.contains(e.target)) {
+        menu.classList.add("hidden");
+      }
+    });
+  </script>
+
+  <script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#logo-mask",
+        start: "top top",
+        end: "bottom top",
+        scrub: 1,
+      },
+    });
+
+  tl.to("#hero-key", { duration: 1, scale: 1, ease: "power2.out" })
+  .to("#hero-key-logo", { scale: 1.5, opacity: 0, ease: "power2.out" }, "<")
+  .to("#hero-key-background", { scale: 1, ease: "power2.out" }, "<")
+  .to("#hero-key-call", { scale: 1.5, opacity: 0, ease: "power2.out" }, "<")
+  .to("#logo-mask", {
+    maskSize: "clamp(35vh, 25%, 40vh)",
+    duration: 0.6,
+    ease: "power2.out",
+  }, "<")
+
+  .to("#menu-call", { scale: 1, opacity: 1, duration: 0.3 }, "<")
+  .to("#hero-content", {
+    opacity: 1,
+    pointerEvents: "auto",
+    scale: 1,
+    ease: "power2.out",
+  }, "<")
+  .to("#card-section", {
+    opacity: 1,
+    ease: "power2.out",
+    onStart: () => {
+      const card = document.getElementById("card-section");
+      if (card) {
+        card.classList.remove("hidden");
+        card.style.pointerEvents = "auto";
+        card.style.overflowY = "auto";
+      }
+    },
+    onReverseComplete: () => {
+      const card = document.getElementById("card-section");
+      if (card) {
+        card.classList.add("hidden");
+        card.style.pointerEvents = "none";
+        card.style.overflowY = "hidden";
+      }
+    },
+  })
+  .to("#hero-content", {
+    opacity: 0,
+    duration: 0.3,
+    ease: "power2.out",
+      }, "+=0.2");
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const serviciosLink = document.querySelector('a[href="#card-section"]');
+      const section = document.getElementById("card-section");
+
+      if (serviciosLink && section) {
+        serviciosLink.addEventListener("click", () => {
+          section.classList.remove("hidden", "opacity-0");
+          section.classList.add("opacity-100");
+          setTimeout(() => {
+            section.scrollIntoView({ behavior: "smooth" });
+          }, 100);
+        });
+
+        document.querySelectorAll("a[href]").forEach((link) => {
+          if (link !== serviciosLink) {
+            link.addEventListener("click", () => {
+              section.classList.remove("opacity-100");
+              section.classList.add("opacity-0");
+              setTimeout(() => {
+                section.classList.add("hidden");
+              }, 500);
+            });
+          }
+        });
+      }
+    });
+  </script>
+<script>
+  // Precarga la página "testimonios" en segundo plano
+  const preloadLink = document.createElement("link");
+  preloadLink.rel = "prefetch";
+  preloadLink.href = "/testimonios";
+  document.head.appendChild(preloadLink);
+
+  // Detectar scroll al fondo
+  window.addEventListener("scroll", () => {
+    const scrollBottom = window.innerHeight + window.scrollY;
+    const pageHeight = document.body.offsetHeight;
+
+    // Si el usuario llega al fondo (con un margen)
+    if (scrollBottom >= pageHeight - 10) {
+      window.location.href = "/testimonios";
+    }
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const target = urlParams.get("goto");
+
+    if (target) {
+      const section = document.getElementById(target);
+      if (section) {
+        section.classList.remove("hidden");
+        section.classList.add("opacity-100");
+        setTimeout(() => {
+          section.scrollIntoView({ behavior: "smooth" });
+        }, 300); // espera a que se renderice
+      }
+    }
+  });
+</script>
+
+<script>
+  function confirmCall(event) {
+    event.preventDefault(); // Previene la llamada inmediata
+    const confirmacion = confirm("¿Deseas llamar ahora a JP Amarres?");
+    if (confirmacion) {
+      window.location.href = "tel:+573045635147"; // SIN espacios
+    }
+  }
+</script>
+
+
+
+<style>
+  #logo-mask {
+    background: white;
+    mask-image: url("../assets/logo3.svg");
+    mask-position: center 25%;
+    mask-repeat: no-repeat;
+    mask-size: clamp(8000vh, 3500%, 0vh);
+  }
+</style>
+  

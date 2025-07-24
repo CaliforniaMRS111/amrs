@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <style>
+    .text-white {
+      fill: white;
+      font-family: "Arial Black", sans-serif;
+      text-anchor: middle;
+    }
+    .text-black {
+      fill: black;
+      font-family: "Arial Black", sans-serif;
+      text-anchor: middle;
+    }
+  </style>
+
+  <!-- Título principal -->
+  <text x="400" y="140" font-size="70" class="text-white">Amarres</text>
+  <text x="400" y="220" font-size="70" class="text-white">de Amor</text>
+
+  <!-- Caja para Consulta Gratis -->
+  <rect x="200" y="300" width="400" height="150" rx="30" ry="30" fill="white" />
+
+  <!-- Texto dentro de la caja -->
+  <text x="400" y="370" font-size="45" class="text-black">CONSULTA</text>
+  <text x="400" y="430" font-size="45" class="text-black">GRATIS</text>
+</svg>
