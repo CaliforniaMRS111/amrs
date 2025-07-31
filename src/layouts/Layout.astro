@@ -1,6 +1,7 @@
 ---
 import ArrwoScroll from '../assets/arrow-down.svg';
 ---
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,35 +10,30 @@ import ArrwoScroll from '../assets/arrow-down.svg';
     <link rel="icon" type="image/svg+xml" href="/src/assets/hero-key-logo.webp" />
     <meta name="generator" content={Astro.generator} />
     <title>Amarres de amor</title>
-    <title>Amarres de Amor Efectivos | Maestro Espiritual</title>
+        <title>Amarres de Amor Efectivos | Maestro Espiritual</title>
     <meta name="description" content="Amarres de amor efectivos, trabajos espirituales, unión de parejas y rituales personalizados. Resultados rápidos y garantizados.">
-
-    <link rel="preconnect" href="/" crossorigin>
-    <link rel="preload" href="/fonts/regular.woff" as="font" type="font/woff" crossorigin>
-    <link rel="preload" href="/fonts/semibold.woff" as="font" type="font/woff" crossorigin>
-    <link rel="preload" href="/fonts/bold.woff" as="font" type="font/woff" crossorigin>
-    <link rel="preload" href="/src/assets/hero-key-logo.webp" as="image" fetchpriority="high">
   </head>
 
   <body>
     <slot />
     <img
-      id="scroll-down"
+	id="scroll-down"
       src={ArrwoScroll.src}
       alt="Scroll Down"
       class="fixed scale-200 bottom-6 left-1/2 transform -translate-x-1/2 drop-shadow-2xl animate-bounce-pulse w-8 h-8 opacity-90 z-50"
     />
+    
   </body>
 </html>
 
 <style is:global>
   @import "tailwindcss";
-
   @theme {
-    --font-sans: AMR, sans-serif;
-    --font-narrow: AMRNarrow, sans-serif;
-    --animate-bounce-pulse: bounce-pulse 2s ease-in-out infinite;
-  }
+	--font-sans: AMR, sans-serif;
+	--font-narrow: AMRNarrow, sans-serif;
+--animate-bounce-pulse: bounce-pulse 2s ease-in-out infinite;
+  
+  }	
 
   @keyframes bounce-pulse {
     0% {
@@ -56,7 +52,7 @@ import ArrwoScroll from '../assets/arrow-down.svg';
 
   html,
   body {
-    background: rgb(6, 1, 16);
+    background:rgb(6, 1, 16);
     height: 300vh;
     overflow-x: hidden;
     overscroll-behavior: none;
@@ -65,7 +61,6 @@ import ArrwoScroll from '../assets/arrow-down.svg';
     width: 100%;
   }
 
-  /* 🔹 Fuentes optimizadas con font-display: swap para no bloquear render */
   @font-face {
     font-family: AMR;
     src: url("/fonts/regular.woff") format("woff");
@@ -73,6 +68,7 @@ import ArrwoScroll from '../assets/arrow-down.svg';
     font-style: normal;
     font-display: swap;
   }
+
   @font-face {
     font-family: AMR;
     src: url("/fonts/bold.woff") format("woff");
@@ -80,6 +76,7 @@ import ArrwoScroll from '../assets/arrow-down.svg';
     font-style: normal;
     font-display: swap;
   }
+
   @font-face {
     font-family: AMR;
     src: url("/fonts/semibold.woff") format("woff");
@@ -87,6 +84,7 @@ import ArrwoScroll from '../assets/arrow-down.svg';
     font-style: normal;
     font-display: swap;
   }
+
   @font-face {
     font-family: AMRNarrow;
     src: url("/fonts/narrow.woff") format("woff");
@@ -95,3 +93,4 @@ import ArrwoScroll from '../assets/arrow-down.svg';
     font-display: swap;
   }
 </style>
+
