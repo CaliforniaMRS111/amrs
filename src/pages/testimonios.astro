@@ -68,14 +68,7 @@ setTimeout(()=>{window.location.href="/";},100);}});
       </div>
     </div>
   </header>
-    <a
-    id="menu-call"
-    href="tel:+13237988413"
-    class="fixed bottom-4 right-4 bg-blue-800 text-white px-4 py-2 rounded-full shadow-lg hover:bg-blue-600 transition-colors duration-300 flex items-center"
-  >
-    <img src={ButtonCall.src} alt="Call Now" class="w-6 h-6 inline-block" />
-    <span class="ml-2">Llámanos gratis</span>
-  </a>
+ 
 
   <!-- TESTIMONIOS COMO CARRUSEL -->
 <!-- TESTIMONIOS COMO CARRUSEL -->
@@ -150,18 +143,52 @@ setTimeout(()=>{window.location.href="/";},100);}});
 
 
   <!-- FOOTER -->
-  <footer class="bg-[rgba(6,1,16,0.95)] text-gray-300 py-8 px-6">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
-      <img src={HeroKeyLogo.src} alt="Logo" class="w-24 mb-4 md:mb-0" />
-      <nav class="flex space-x-4 mb-4 md:mb-0">
-        <a href="/" class="hover:text-white">Inicio</a>
-        <a href="/servicios" class="hover:text-white">Servicios</a>
-        <a href="/testimonios" class="hover:text-white">Testimonios</a>
-        <a href="/contacto" class="hover:text-white">Contacto</a>
-      </nav>
-      <p class="text-sm text-center md:text-left">&copy; {new Date().getFullYear()} Amarres Sexuales. Todos los derechos reservados.</p>
-    </div>
-  </footer>
+<footer class="bg-[rgba(6,1,16,0.95)] text-gray-300 py-8 px-6">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center relative">
+
+    <!-- Botón "Llámanos gratis" (sin fixed, encima del de WhatsApp) -->
+    <a
+      href="tel:+13237988413"
+      class="mb-4 bg-blue-800 text-white px-4 py-2 rounded-full shadow-lg hover:bg-blue-600 transition-colors duration-300 flex items-center space-x-2"
+    >
+      <img src={ButtonCall.src} alt="Call Now" class="w-5 h-5" />
+      <span>Llámanos gratis</span>
+    </a>
+
+    <!-- Botón WhatsApp encima del logo -->
+    <a
+      href="https://wa.me/17135108975"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="mb-6 bg-green-500 hover:bg-green-600 text-white font-semibold px-4 py-2 rounded-full shadow-lg flex items-center space-x-2 transition duration-300"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M20.52 3.48a11.93 11.93 0 0 0-16.9 0 11.93 11.93 0 0 0-2.62 13.1L0 24l7.56-1.96a11.93 11.93 0 0 0 13.1-2.62 11.93 11.93 0 0 0 0-16.94zM12 21.54a9.53 9.53 0 0 1-4.83-1.31l-.35-.2-4.48 1.16 1.2-4.35-.23-.36a9.56 9.56 0 1 1 8.7 5.06zm5.2-7.02c-.3-.15-1.78-.88-2.06-.98s-.48-.15-.68.15c-.2.3-.78.98-.95 1.18-.18.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.46-.89-.8-1.48-1.78-1.65-2.08-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.38-.02-.53s-.68-1.63-.93-2.23c-.25-.6-.5-.5-.68-.5h-.58c-.2 0-.53.08-.8.38s-1.05 1.02-1.05 2.5 1.08 2.9 1.23 3.1c.15.2 2.13 3.23 5.18 4.53.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.1 1.78-.73 2.03-1.44.25-.7.25-1.3.17-1.43-.08-.13-.28-.2-.58-.35z"/>
+      </svg>
+      <span>WhatsApp</span>
+    </a>
+
+    <!-- Logo -->
+    <img src={HeroKeyLogo.src} alt="Logo" class="w-24 mb-4 md:mb-0" />
+
+    <!-- Navegación -->
+    <nav class="flex space-x-4 mb-4 md:mb-0">
+      <a href="/" class="hover:text-white">Inicio</a>
+      <a href="/?goto=card-section" class="hover:text-white">Servicios</a>
+      <a href="/testimonios" class="hover:text-white">Testimonios</a>
+      <a href="https://wa.me/17135108975" target="_blank" rel="noopener noreferrer" class="hover:text-white">
+        WhatsApp
+      </a>
+    </nav>
+
+    <!-- Derechos -->
+    <p class="text-sm text-center md:text-left">
+      &copy; {new Date().getFullYear()} Amarres Sexuales. Todos los derechos reservados.
+    </p>
+  </div>
+</footer>
+
+
 
   <!-- Script menú -->
   <script>
